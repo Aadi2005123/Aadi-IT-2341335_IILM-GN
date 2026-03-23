@@ -12,13 +12,13 @@ const syncUser = inngest.createFunction(
 
 
         const{id, email_address, first_name, last_name, image_url} = event.data; // get the user data from the event payload
-const newUsser={
-    clearrkId:id,
+const newUser={
+    clearkId:id,
     email:email_address[0]?.email_address,
     name: `${first_name || ""} ${last_name || ""}`,
     profileImage:image_url
 }
-await User.create(newUsser);
+await User.create(newUser);
 
     }
 )
@@ -32,7 +32,7 @@ const deleteUserFromDB = inngest.createFunction(
 
         const{id} = event.data; // get the user data from the event payload
 
-await User.deleteOne({clearrkId:id});
+await User.deleteOne({clearkId:id});
 
 
 
